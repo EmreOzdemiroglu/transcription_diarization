@@ -1,36 +1,34 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, Response
+from transformers import pipeline
 import torchaudio
-from transformers import Wav2Vec2ForCTC, Wav2Vec2Processor
-import torch
-import os
+import json
 
 app = Flask(__name__)
 
-# Model ve işlemci yükleme
-processor = Wav2Vec2Processor.from_pretrained("mpoyraz/wav2vec2-xls-r-300m-cv8-turkish")
-model = Wav2Vec2ForCTC.from_pretrained("mpoyraz/wav2vec2-xls-r-300m-cv8-turkish")
+# Modeli yükleme
+pipe = pipeline("automatic-speech-recognition", model="emre/whisper-medium-turkish-2")
 
 @app.route('/transcribe', methods=['POST'])
 def transcribe():
-    if 'file' not in request.files:
-        return jsonify({'error': 'No file part'}), 400
-
     file = request.files['file']
-    if file.filename == '':
-        return jsonify({'error': 'No selected file'}), 400
+    file.save('temp_voice.mp3')
 
-    if file:
-        waveform, sample_rate = torchaudio.load(file)
-        resampler = torchaudio.transforms.Resample(orig_freq=sample_rate, new_freq=16000)
-        waveform = resampler(waveform)
-        input_values = processor(waveform.squeeze().numpy(), return_tensors="pt", sampling_rate=16000).input_values
+    # Ses dosyasını okuma
+    waveform, sample_rate = torchaudio.load('temp_voice.mp3')
 
-        with torch.no_grad():
-            logits = model(input_values).logits
-            predicted_ids = torch.argmax(logits, dim=-1)
+    # Örnekleme oranını 16000'e dönüştürme
+    resampler = torchaudio.transforms.Resample(sample_rate, 16000)
+    waveform_16k = resampler(waveform)
 
-        transcription = processor.batch_decode(predicted_ids)
-        return jsonify({'transcription': transcription[0]})
+    # 16k örnekleme oranıyla geçici dosya oluşturma
+    torchaudio.save('temp_voice_16k.mp3', waveform_16k, 16000)
+
+    # Ses dosyasını işleme
+    transcription = pipe('temp_voice_16k.mp3')
+    
+    # Düzgün şekilde JSON yanıtı döndürme
+    response_data = {'transcription': transcription['text']}
+    return Response(json.dumps(response_data, ensure_ascii=False), content_type='application/json; charset=utf-8')
 
 if __name__ == '__main__':
     app.run(debug=True)
