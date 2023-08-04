@@ -2,7 +2,7 @@
 
 Beta Branch'ında OPENAI Integration var.
 
-Bu proje, verilen bir ses dosyasının Türkçe transkripsiyonunu gerçekleştirmek üzere tasarlanmış bir Flask API'dir. [Hugging Face modeli](https://huggingface.co/mpoyraz/wav2vec2-xls-r-300m-cv8-turkish) kullanılarak ses dosyaları işlenir. Modelin eğitim ve değerlendirme verileri hakkında daha fazla bilgi için [bu bağlantıya](https://huggingface.co/mpoyraz/wav2vec2-xls-r-300m-cv8-turkish#training-and-evaluation-data) göz atabilirsiniz.
+Bu proje, verilen bir ses dosyasının Türkçe transkripsiyonunu gerçekleştirmek üzere tasarlanmış bir Flask API'dir. [Hugging Face modeli](https://huggingface.co/mpoyraz/wav2vec2-xls-r-300m-cv8-turkish) kullanılarak ses dosyaları işlenir. Modelin eğitim ve değerlendirme verileri hakkında daha fazla bilgi için [bu bağlantıya](https://huggingface.co/mpoyraz/wav2vec2-xls-r-300m-cv8-turkish#training-and-evaluation-data) göz atabilirsiniz. Şu an [whisper](https://huggingface.co/emre/whisper-medium-turkish-2) modeli kullanılıyor. app.py'de.
 
 ## Kurulum
 
