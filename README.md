@@ -30,7 +30,7 @@ Bu proje, verilen bir ses dosyasının Türkçe transkripsiyonunu gerçekleştir
    Bu komut, `voice.mp3` adlı dosyayı API'ye gönderir ve transkripsiyon sonucunu JSON olarak döndürür.
 
 ## Gelecek Geliştirmeleri
-- [ ] OpenAI API ile Bağlam Düzeltme: Transkripsiyon sürecinde ortaya çıkan dilbilgisel ve anlamsal hataları düzeltmek için OpenAI'nin güçlü dil modelini entegre etmek. Bu, cümlenin bağlamına göre kelime seçimlerini optimize edebilir ve transkripsiyonun genel kalitesini artırabilir. Bu özellik, özellikle karmaşık ve teknik terimler içeren ses dosyaları için yararlı olabilir.
+- [kinda] OpenAI API ile Bağlam Düzeltme: Transkripsiyon sürecinde ortaya çıkan dilbilgisel ve anlamsal hataları düzeltmek için OpenAI'nin güçlü dil modelini entegre etmek. Bu, cümlenin bağlamına göre kelime seçimlerini optimize edebilir ve transkripsiyonun genel kalitesini artırabilir. Bu özellik, özellikle karmaşık ve teknik terimler içeren ses dosyaları için yararlı olabilir. [Beta] da yaptım, fakat kontrol etmedim.
 
 - [ ] Gerçek Zamanlı Transkripsiyon: Gerçek zamanlı transkripsiyon kapasitesi eklemek, kullanıcıların canlı ses akışlarını anında yazılı metne dönüştürmelerine olanak tanır. Bu, canlı etkinlikler, toplantılar ve konferanslar için kullanışlı olabilir. Bu özelliğin eklenmesi, düşük gecikme sürelerinin sağlanması ve yüksek doğruluk oranlarının korunması gibi teknik zorlukları içerebilir.
 
