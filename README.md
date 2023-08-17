@@ -1,32 +1,52 @@
 # Türkçe Ses Transkripsiyonu Flask API
 
-## Kurulum
+## Usage Options
 
-1. **Gerekli Kütüphanelerin Kurulumu**: Proje, `requirements.txt` dosyasında belirtilen Python kütüphanelerini kullanmaktadır. Bu kütüphaneleri aşağıdaki komutla yükleyebilirsiniz:
+
+This project can be utilized in three different ways, each catering to different needs and environments. Below, you'll find a brief overview of these methods:
+
+1. Google Colab: Ideal for those who prefer a cloud-based environment, Google Colab offers an accessible platform to run the code without any local setup. You can simply upload the notebook containing the project code to Colab and execute it there. Colab also provides access to GPU resources, which can accelerate computations.
+
+2. Docker: If you prefer containerized deployment, you can use Docker to build and run the project. By encapsulating the project and its dependencies in a Docker container, you ensure a consistent and reproducible environment across different machines. This is particularly useful for managing dependencies and avoiding conflicts.
+
+3. Direct Installation on Your Computer: For those who want to run the project directly on their local machine, a direct installation can be done. This involves cloning the project repository, installing the required dependencies as specified in the requirements.txt file, and executing the code in your preferred development environment.
+
+### Colab
+
+**:rocket: Try transcription_diarization live in 60s** [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/EmreOzdemiroglu/Turkish-Speech-To-Text/blob/main/Transcription_Diarization.ipynb)
+
+### Docker
+
+[![Docker](https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white)](link) 
+
+### Installation
+
+1. **Installing Required Libraries**: The project utilizes Python libraries specified in the `requirements.txt` file. You can install these libraries using the following command:
 
    ```bash
    pip install -r requirements.txt
    ```
-2. Kenlm kurulumu. Ben arch kullandığımdan kurulum için internete baktım. Hata ayıklama yaparken gerekliydi bende yükledim. *not*
 
-## Kullanım
+## Usage
 
-1. **API'yi Başlatma**: Terminalde, projenin ana dizininde aşağıdaki komutu çalıştırın:
+1. **Starting the API**: In the terminal, navigate to the main directory of the project and run the following command:
 
    ```bash
    python app.py
    ```
 
-   Bu, API'yi `http://127.0.0.1:5000/` adresinde başlatacaktır.
+   This will start the API at the address `http://127.0.0.1:5000/`.
 
-2. **Transkripsiyon İsteği Gönderme**: Ses dosyasının transkripsiyonunu almak için, aşağıdaki `curl` komutunu kullanabilirsiniz:
+2. **Sending a Transcription Request**: To obtain the transcription of an audio file, you can use the following `curl` command:
 
    ```bash
-   curl -X POST -F "files=@dosya_yolu1.mp3" -F "files=@dosya_yolu2.mp3" http://localhost:5000/transcribe
+   curl -X POST -F "files=@file_path1.mp3" -F "files=@file_path2.mp3" http://localhost:5000/transcribe
    ```
 
-   Bu komut, `voice.mp3` adlı dosyayı API'ye gönderir ve transkripsiyon sonucunu JSON olarak döndürür.
+   This command sends the `voice.mp3` file to the API and returns the transcription result as JSON.
 
+
+###
 
 ## Lisans
 
