@@ -1,4 +1,4 @@
-# Türkçe Ses Transkripsiyonu Flask API
+# Transcription and Diarization
 
 ## Usage Options
 
