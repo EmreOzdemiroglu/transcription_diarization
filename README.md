@@ -13,7 +13,7 @@ This project can be utilized in three different ways, each catering to different
 
 ### Colab
 
-**:rocket: Try transcription_diarization live in 60s** [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/EmreOzdemiroglu/Turkish-Speech-To-Text/blob/main/Transcription_Diarization.ipynb)
+**:rocket: Try transcription_diarization live in 60s** [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/EmreOzdemiroglu/transcription_diarization/blob/main/Transcription_Diarization.ipynb)
 
 ### Docker
 
