@@ -4,3 +4,4 @@ torch
 numpy
 scikit-learn
 wave
+flask
