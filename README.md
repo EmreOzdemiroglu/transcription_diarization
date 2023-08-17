@@ -19,7 +19,7 @@ This project can be utilized in three different ways, each catering to different
 
 [![Docker](https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white)](link) 
 
-### Installation
+### Installation (Now only works with Nvidia GPU's. I will add support for Macs Later on using this https://github.com/ggerganov/whisper.cpp)
 
 1. **Installing Required Libraries**: The project utilizes Python libraries specified in the `requirements.txt` file. You can install these libraries using the following command:
 
@@ -27,7 +27,7 @@ This project can be utilized in three different ways, each catering to different
    pip install -r requirements.txt
    ```
 
-## Usage
+### Usage
 
 1. **Starting the API**: In the terminal, navigate to the main directory of the project and run the following command:
 
